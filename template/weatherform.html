@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        {%csrf_token%}
+        {{form}}
+       
+        <div>
+            <h3>main:</h3>{{weather_data.main}}
+            <h3>description:</h3>{{weather_data.description}}
+            <h3>icon:</h3>{{weather_data.icon}}
+            <h3>base:</h3>{{weather_data.base}}
+            <h3>temp:</h3>{{weather_data.temp}}
+            <h3>feels_like:</h3>{{weather_data.feels_like}}
+            <h3>temp_min:</h3>{{weather_data.temp_min}}
+            <h3>temp_max:</h3>{{weather_data.temp_max}}
+            <h3>pressure:</h3>{{weather_datapressure}}
+            <h3>humidity:</h3>{{weather_data.humidity}}
+        </div>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
