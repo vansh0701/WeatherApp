@@ -75,7 +75,7 @@ def photo_range(photo_list,range_value):
 def home(request):
     try:
         photo=[]
-        r2=requests.get('https://ipinfo.io').json()
+        r2=requests.get('https://ipinfo.io?token=ac6d25e9ec69db').json()
         form=weatherform()
         city= r2['city']
         region= r2['region']
