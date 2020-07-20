@@ -75,7 +75,17 @@ def photo_range(photo_list,range_value):
 def home(request):
     try:
         photo=[]
-        r2=requests.get('https://ipinfo.io?token=ac6d25e9ec69db').json()
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        
+        client_ip_1 = request.META['REMOTE_ADDR']
+        client_ip_2=request.META.get('HTTP_X_REAL_IP')
+        r2=requests.get('http://api.ipstack.com/' +ip+ '?access_key=94e208e125e4a4025effe75fd1db2b8f').json()
+
+
         form=weatherform()
         city= r2['city']
         region= r2['region']
@@ -103,6 +113,7 @@ def home(request):
     
     
     except KeyError:
+        
         messages.info("could'nt find the temperture for this city")
         
         return render(request,'index.html')
