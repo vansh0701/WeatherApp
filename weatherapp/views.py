@@ -87,7 +87,7 @@ def home(request):
 
         form=weatherform()
         city= r2['city']
-        region= r2['region']
+        region= r2['region_name']
         global input_city
         input_city=city
 
