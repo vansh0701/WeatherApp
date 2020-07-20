@@ -81,8 +81,7 @@ def home(request):
         else:
             ip = request.META.get('REMOTE_ADDR')
         
-        client_ip_1 = request.META['REMOTE_ADDR']
-        client_ip_2=request.META.get('HTTP_X_REAL_IP')
+
         r2=requests.get('http://api.ipstack.com/' +ip+ '?access_key=94e208e125e4a4025effe75fd1db2b8f').json()
 
 
@@ -183,18 +182,3 @@ def liveimages(request):
         return redirect("/")
 
 
-
-def facebook(request):
-    return redirect("www.facebook.com")
-
-
-def twitter(request):
-    return redirect("www.twitter.com")
-
-
-def google(request):
-    return redirect("www.google.com")
-    
-
-def pininterest(request):
-    return redirect("www.pininterest.com")
